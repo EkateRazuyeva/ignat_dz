@@ -1,12 +1,15 @@
 .item {
+    border-bottom: 2px solid  #E5E5E5;
+    height: 42px;
 }
 
 .item:last-of-type {
+    border: none;
 }
 
 .users {
     width: 406px;
-    border: none;
+    border-collapse: collapse;
 }
 
 .buttonsContainer {
