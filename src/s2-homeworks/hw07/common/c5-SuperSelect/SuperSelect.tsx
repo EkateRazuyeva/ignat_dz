@@ -13,6 +13,7 @@ type SuperSelectPropsType = DefaultSelectPropsType & {
     onChangeOption?: (option: any) => void
 }
 
+
 const SuperSelect: React.FC<SuperSelectPropsType> = ({
                                                          options,
                                                          className,
