@@ -4,8 +4,14 @@
 
 .text1 {
 
+    margin: 5px;
 }
 
 .text2 {
+    margin: 5px;
+}
 
+.select {
+    width: 50px;
+    margin: 0
 }

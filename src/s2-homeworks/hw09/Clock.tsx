@@ -1,7 +1,8 @@
-import React, {useState} from 'react'
+import React, { useState} from 'react'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import {restoreState} from '../hw06/localStorage/localStorage'
 import s from './Clock.module.css'
+
 
 function Clock() {
     const [timerId, setTimerId] = useState<number | undefined>(undefined)
@@ -10,29 +11,45 @@ function Clock() {
     const [show, setShow] = useState<boolean>(false)
 
     const start = () => {
+        stop()
+        let timerId = setInterval(() => {
+            setDate(new Date())
+        }, 1000);
+
+        setTimerId(+timerId)
+
         // пишут студенты // запустить часы (должно отображаться реальное время, а не +1)
         // сохранить ид таймера (https://learn.javascript.ru/settimeout-setinterval#setinterval)
-
     }
 
     const stop = () => {
-        // пишут студенты // поставить часы на паузу, обнулить ид таймера (timerId <- undefined)
-
+        clearInterval(timerId)
+        setTimerId(undefined)// пишут студенты // поставить часы на паузу, обнулить ид таймера (timerId <- undefined)
     }
 
     const onMouseEnter = () => { // пишут студенты // показать дату если наведена мышка
-
+        setShow(true)
     }
     const onMouseLeave = () => { // пишут студенты // спрятать дату если мышка не наведена
-
+        setShow(false)
     }
 
-    const stringTime = 'date->time' || <br/> // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
-    const stringDate = 'date->date' || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
+    const hour = date.getHours().toString().length < 2 ? '0' + date.getHours() : date.getHours();
+    const min = date.getMinutes().toString().length < 2 ? '0' + date.getMinutes() : date.getMinutes();
+    const sec = date.getSeconds().toString().length < 2 ? '0' + date.getSeconds() : date.getSeconds();
+
+    const year = date.getFullYear()
+    const month = (date.getMonth() + 1).toString().length < 2 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1);
+    const day = date.getDate().toString().length < 10 ? '0' + date.getDate() : date.getDate();
+
+
+    const stringTime = `${hour}:${min}:${sec}` || <br/> // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
+    const stringDate = `${day}.${month}.${year}` || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
 
     // день недели на английском, месяц на английском (https://learn.javascript.ru/intl#intl-datetimeformat)
-    const stringDay = 'date->day' || <br/> // пишут студенты
-    const stringMonth = 'date->month' || <br/> // пишут студенты
+    const stringDay = date.toLocaleString('en-US', {weekday: 'long'}) || <br/> // пишут студенты
+    const stringMonth = date.toLocaleString('en-US', {month: 'long'}) || <br/> // пишут студенты
+
 
     return (
         <div className={s.clock}>
@@ -66,14 +83,14 @@ function Clock() {
             <div className={s.buttonsContainer}>
                 <SuperButton
                     id={'hw9-button-start'}
-                    disabled={true} // пишут студенты // задизэйблить если таймер запущен
+                    disabled={!!timerId} // пишут студенты // задизэйблить если таймер запущен
                     onClick={start}
                 >
                     start
                 </SuperButton>
                 <SuperButton
                     id={'hw9-button-stop'}
-                    disabled={true} // пишут студенты // задизэйблить если таймер не запущен
+                    disabled={!timerId} // пишут студенты // задизэйблить если таймер не запущен
                     onClick={stop}
                 >
                     stop

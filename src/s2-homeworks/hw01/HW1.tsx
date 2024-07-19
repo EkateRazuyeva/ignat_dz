@@ -14,17 +14,33 @@ import avatar from './avatar.png'
 * */
 
 // нужно создать правильный тип вместо any
-export type MessageType = any
+
+export type TextType={
+    text:string
+    time:string
+}
+
+export type UserType={
+    avatar: string
+    name: string
+}
+
+export type MessageType = {
+    id: number
+    user: UserType
+    message: TextType
+}
+
 
 // структуру объекта не менять
 export const message0: MessageType = {
     id: 0,
     user: {
         avatar: avatar, // можно менять
-        name: 'Some Name',  // можно менять
+        name: 'Fiona',  // можно менять
     },
     message: {
-        text: 'some textsome textsome textsome textsome textsome textsome text', // можно менять
+        text: 'How are you getting on with your research?', // можно менять
         time: '22:00', // можно менять
     },
 }
@@ -32,11 +48,11 @@ export const friendMessage0: MessageType = {
     id: 100,
     user: {
         avatar: avatar, // можно менять
-        name: 'Friend Name', // можно менять
+        name: 'Malik', // можно менять
     },
     message: {
-        text: 'зеркальное сообщение для тренировки css', // можно менять
-        time: '22:00', // можно менять
+        text: 'Fine, I am studying ways to deal with stress in the office, and it is very interesting.', // можно менять
+        time: '22:13', // можно менять
     },
 }
 
@@ -44,6 +60,7 @@ const HW1 = () => {
     return (
         <div id={'hw1'}>
             <div className={s2.hwTitle}>Homework #1</div>
+            <hr style={{margin:'10px 0px'}}/>
             <div className={s2.hw}>
                 {/*проверка отображения (не менять)*/}
                 <div>
@@ -54,7 +71,9 @@ const HW1 = () => {
                 {/*для автоматической проверки дз (не менять)*/}
                 <MessageSender M={Message} />
             </div>
+            <hr style={{margin:'25px 0px'}}/>
         </div>
+
     )
 }
 

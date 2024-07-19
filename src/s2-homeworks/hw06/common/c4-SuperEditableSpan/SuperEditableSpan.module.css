@@ -2,10 +2,20 @@
 }
 
 .span {
+    color: #0080FF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 .input {
+
 }
 
 .pen {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
 }
+
