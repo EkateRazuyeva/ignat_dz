@@ -1,27 +1,42 @@
+.hw15 {
+    height: 400px;
+}
+
 .tech {
-    width: 50vw;
+    width: 300px;
 }
 
 .developer {
-
+    width: 300px
 }
 
 .techHeader {
-    width: 50vw;
+    width: 300px;
+    background: #E5E5E5;
+    padding: 7px 0;
+    font-weight: bold
 }
 
 .developerHeader {
-
+    width: 300px;
+    background: #E5E5E5;
+    padding: 7px 0;
+    font-weight: bold
 }
 
 .row {
     display: flex;
+    border-top: 1px solid #E5E5E5;
+    padding: 7px 0;
+    width: 600px;
 }
 
 .rowHeader {
     display: flex;
+    justify-content: flex-start;
 }
 
-.loading {
-
+.loader {
+    width: 800px;
+    margin: 0 auto
 }

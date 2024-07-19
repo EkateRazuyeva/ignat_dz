@@ -72,7 +72,7 @@ const HW14 = () => {
     return (
         <div id={'hw14'}>
             <div className={s2.hwTitle}>Homework #14</div>
-
+            <hr style={{margin: '10px 0px'}}/>
             <div className={s2.hw}>
                 <SuperDebouncedInput
                     id={'hw14-super-debounced-input'}
