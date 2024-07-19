@@ -49,6 +49,7 @@ const SuperSort: React.FC<SuperSortPropsType> = (
             onClick={onChangeCallback}
         >
             <img
+                alt={'arrow'}
                 id={id + '-icon-' + sort}
                 src={icon}
                 height={'10px'}
